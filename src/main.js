@@ -8,7 +8,7 @@ import VueCookies from 'vue-cookies';
 Vue.use(VueCookies);
 
 Vue.config.performance = process.env.NODE_ENV != "production";
-Vue.$cookies.config('30d')
+Vue.$cookies.config('30d');
 
 new Vue({
   vuetify,

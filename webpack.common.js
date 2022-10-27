@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== "production";
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 	entry: ["babel-polyfill", './src/main.js'],
@@ -45,7 +44,6 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new BundleAnalyzerPlugin(),
 		new HtmlWebpackPlugin({
 			template: './public/index.html',
 		}),
