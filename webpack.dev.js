@@ -5,7 +5,7 @@ const Dotenv = require('dotenv-webpack');
 module.exports = merge(common, {
 	mode: 'development',
 	devServer: {
-		// port: 8081,
+		// port: 443,
 		// historyApiFallback: true,
 		compress: true,
 		allowedHosts: [

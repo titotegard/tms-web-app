@@ -1,8 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== "production";
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 	entry: ["babel-polyfill", './src/main.js'],
@@ -32,11 +34,11 @@ module.exports = {
 					'css-loader',
 				{
 					loader: 'sass-loader',
-					options: {
-						// This is the path to your variables
-						// additionalData: `@import '@/sass/styles/variables.scss';
-						// 									@import '@/sass/preset/mixins.scss';`
-					},
+					// options: {
+					// 	// This is the path to your variables
+					// 	additionalData: `@import '@/sass/styles/variables.scss';
+					// 										@import '@/sass/preset/mixins.scss';`
+					// },
 					// Requires >= sass-loader@^8.0.0
 				},
 				],
@@ -44,10 +46,12 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new BundleAnalyzerPlugin(),
 		new HtmlWebpackPlugin({
 			template: './public/index.html',
 		}),
 		new VueLoaderPlugin(),
+		new VuetifyLoaderPlugin(),
 	].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
 	output: {
 		filename: 'tms.bundle.js',
