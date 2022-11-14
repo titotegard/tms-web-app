@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== "production";
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 	entry: ["babel-polyfill", './src/main.js'],
@@ -46,12 +46,14 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new BundleAnalyzerPlugin(),
+		// new BundleAnalyzerPlugin(),
 		new HtmlWebpackPlugin({
 			template: './public/index.html',
 		}),
 		new VueLoaderPlugin(),
-		new VuetifyLoaderPlugin(),
+		new VuetifyLoaderPlugin({
+			progressiveImages: true
+		}),
 	].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
 	output: {
 		filename: 'tms.bundle.js',

@@ -1,0 +1,117 @@
+@import "./mixins.scss";
+
+// ————————————————————————————————————
+//* ——— Typography
+// ————————————————————————————————————
+
+.v-application {
+	[class*="text-"] {
+		font-family: $body-font-family !important;
+	}
+
+	font-family: $body-font-family !important;
+}
+
+//
+//* ——— Font Sizes ——————————————————
+//
+
+// According to TailwindCSS
+.text-xs {
+	font-size: 0.75rem !important;
+	line-height: 1rem !important;
+}
+
+.text-sm {
+	font-size: 0.875rem !important;
+	line-height: 1.25rem !important;
+}
+
+.text-base {
+	font-size: 1rem !important;
+	line-height: 1.5rem !important;
+}
+
+.text-lg {
+	font-size: 1.125rem !important;
+	line-height: 1.75rem !important;
+}
+
+.text-xl {
+	font-size: 1.25rem !important;
+	line-height: 1.75rem !important;
+}
+
+.text-2xl {
+	font-size: 1.5rem !important;
+	line-height: 2rem !important;
+}
+
+.text-3xl {
+	font-size: 1.875rem !important;
+	line-height: 2.25rem !important;
+}
+
+.text-4xl {
+	font-size: 2.25rem !important;
+	line-height: 2.5rem !important;
+}
+
+.text-5xl {
+	font-size: 3rem !important;
+	line-height: 1 !important;
+}
+
+.text-center {
+	text-align: center;
+}
+
+//
+//* ——— V-Tooltip ——————————————————
+//
+
+.tms-dark-tooltip {
+	background: var(--v-primary-base) !important;
+	border: 1px solid $primary-light;
+	color: $primary-light !important;
+}
+
+.tms-light-tooltip {
+	background: $primary-light !important;
+	border: 1px solid $primary-shade--light;
+	color: $primary-shade--light !important;
+}
+
+//
+//* ——— Side Bar ——————————————————
+//
+
+.tms-main {
+  display: grid;
+  grid-template-columns: minmax(110px, 25%) 1fr;
+}
+
+@include theme--child(border-side-bar-item) using ($material) {
+  border-bottom: 1px solid rgba(map-get($material, "primary-shade"), 0.12);
+  
+  .tms-side-bar-item {
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+}
+
+@include theme--child(menu-active) using ($material) {
+	background: var(--v-primary-base) !important;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(98deg, #c48eff, var(--v-primary-base) 94%);
+}
+
+.main-side-bar {
+	z-index: 2;
+}
+
+.child-side-bar {
+	z-index: 1;
+}

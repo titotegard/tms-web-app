@@ -1,0 +1,49 @@
+$primary-light: #F3F3F3;
+$primary-dark: #2c2c2d;
+$primary-shade--light: #504a57;
+$primary-shade--dark: #e7e3fc;
+$shadow-color--light: $primary-shade--light;
+$shadow-color--dark: $primary-shade--dark;
+
+$body-font-family: "Inter", sans-serif;
+
+@import "~vuetify/src/styles/styles.sass";
+
+//
+//* ——— Override Values of Light Theme ——————————————————
+//
+
+// #region Override Light Theme
+$material-light: map-deep-merge(
+	$material-light,
+	(
+		"app-bar": $primary-light,
+		"tooltip": $primary-light,
+		"background": #ebecf2,
+		// * New
+		"primary-shade": $primary-shade--light,
+		"shadow-color": $shadow-color--light,
+	)
+);
+// #endregion
+
+//
+//* ——— Override Values of Dark Theme ——————————————————
+//
+
+// #region Override Dark Theme
+
+$material-dark: map-deep-merge(
+	$material-dark,
+	(
+		// ! Value of `map-deep-get($material-dark, 'cards')`
+		"app-bar": $primary-dark,
+		"tooltip": $primary-dark,
+		"background": #021c26,
+		// * New
+		"primary-shade": $primary-shade--dark,
+		"shadow-color": $shadow-color--dark,
+	)
+);
+
+// #endregion

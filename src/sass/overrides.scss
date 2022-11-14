@@ -1,0 +1,63 @@
+@import "./mixins.scss";
+@import "./classes.scss";
+@import "~vuetify/src/components/VAppBar/_variables.scss";
+@import "~vuetify/src/components/VNavigationDrawer/_variables.scss";
+
+// ————————————————————————————————————
+//* ——— Shadows
+// ————————————————————————————————————
+
+@include app-elevation(elevation-1, 1, true);
+
+@include app-elevation(elevation-2, 2, true);
+
+@include app-elevation(elevation-3, 3, true);
+
+@include app-elevation(elevation-4, 4, true);
+
+@include app-elevation(elevation-6, 5, true);
+
+@include app-elevation(elevation-8, 8, true);
+
+@include app-elevation(elevation-9, 9, true);
+
+@include app-elevation(elevation-12, 12, true);
+
+@include app-elevation(elevation-16, 16, true);
+
+@include app-elevation(elevation-24, 24, true);
+
+//
+//* ——— Override Vuetify Usage of `elevation` mixin ——————————————————
+//
+
+@include app-elevation("v-app-bar", 0, true);
+
+//
+//* ——— App Bar ——————————————————
+//
+
+@include theme(v-app-bar) using ($material) {
+	background-color: map-get($material, "app-bar") !important;
+  border-bottom-color: rgba(map-get($material, "primary-shade"),0.12) !important;
+  border-width: 0 0 thin;
+  border-style: solid;
+}
+
+//
+//* ——— Navigation Drawer ——————————————————
+//
+
+@include theme(v-navigation-drawer) using ($material) {
+  box-shadow: 0 18px 42px -6px rgba(map-deep-get($material, 'shadow-color'), 0.18);
+}
+
+//
+//* ——— VBtn ——————————————————
+//
+
+@include theme(v-btn) using ($material) {
+  &:hover::before{
+   opacity: 0 !important;
+  }
+}
