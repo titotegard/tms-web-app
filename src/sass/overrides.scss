@@ -2,6 +2,8 @@
 @import "./classes.scss";
 @import "~vuetify/src/components/VAppBar/_variables.scss";
 @import "~vuetify/src/components/VNavigationDrawer/_variables.scss";
+@import "~vuetify/src/components/VCard/_variables.scss";
+@import "~vuetify/src/components/VMenu/_variables.scss";
 
 // ————————————————————————————————————
 //* ——— Shadows
@@ -33,6 +35,18 @@
 
 @include app-elevation("v-app-bar", 0, true);
 
+// Card
+@include app-elevation("v-sheet.v-card--hover:hover", 0, true);
+@include app-elevation("v-sheet.v-card--hover:focus", 0, true);
+@include app-elevation("v-card--raised", 0, true);
+
+// Menu
+@include app-elevation("v-menu__content", 0);
+@include app-elevation("v-menu__content.theme--dark", 0);
+
+// VCard
+@include app-elevation("v-sheet.v-card:not(.v-sheet--outlined)", 0, true);
+
 //
 //* ——— App Bar ——————————————————
 //
@@ -42,22 +56,4 @@
   border-bottom-color: rgba(map-get($material, "primary-shade"),0.12) !important;
   border-width: 0 0 thin;
   border-style: solid;
-}
-
-//
-//* ——— Navigation Drawer ——————————————————
-//
-
-@include theme(v-navigation-drawer) using ($material) {
-  box-shadow: 0 18px 42px -6px rgba(map-deep-get($material, 'shadow-color'), 0.18);
-}
-
-//
-//* ——— VBtn ——————————————————
-//
-
-@include theme(v-btn) using ($material) {
-  &:hover::before{
-   opacity: 0 !important;
-  }
 }

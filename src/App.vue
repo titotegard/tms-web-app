@@ -1,7 +1,9 @@
 @@ -0,0 +1,13 @@
 <template>
 	<v-app>
-		<component :is="resolveLayout" />
+		<component :is="resolveLayout">
+			<router-view></router-view>
+		</component>
 	</v-app>
 </template>
 
@@ -39,10 +41,10 @@ export default {
 		},
 	},
 	created() {
-		this.setAllIsOpens();
+		this.closeAllChildMenu();
 	},
 	methods: {
-		...mapActions(["setAllIsOpens"]),
+		...mapActions(["closeAllChildMenu"]),
 		setThemeFromLocal() {
 			const theme = localStorage.getItem("TmsDarkMode");
 			if (theme) {

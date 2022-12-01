@@ -108,10 +108,11 @@
   background: linear-gradient(98deg, #c48eff, var(--v-primary-base) 94%);
 }
 
-.main-side-bar {
-	z-index: 2;
-}
-
-.child-side-bar {
-	z-index: 1;
+@include theme--child(side-bar-child-outlined) using ($material) {
+	.v-menu__content{
+		border-right: 1px solid rgba(map-get($material, "primary-shade"), 0.12) !important;
+		height: 100vh;
+		max-height: calc(100% - 56px);
+		top: 56px;
+	}
 }

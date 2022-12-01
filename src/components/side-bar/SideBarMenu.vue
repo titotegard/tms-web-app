@@ -1,15 +1,17 @@
 <template>
 	<v-list-item
 		link
-		class="border-side-bar-item mx-auto"
 		@click="$emit('click')"
 		@mouseover="$emit('mouseover')"
 		@mouseleave="$emit('mouseleave')"
+		class="py-3"
 	>
-		<div class="tms-side-bar-item py-6 mx-auto">
-			<v-icon class="pb-1"> {{ icon }} </v-icon>
-			<div class="text-xs">{{ title }}</div>
-		</div>
+		<v-list-item-icon class="pl-5">
+			<v-icon>{{ icon }}</v-icon>
+		</v-list-item-icon>
+		<v-list-item-content>
+			<v-list-item-title>{{ title }}</v-list-item-title>
+		</v-list-item-content>
 	</v-list-item>
 </template>
 <script>

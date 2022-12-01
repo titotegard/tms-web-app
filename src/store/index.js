@@ -11,7 +11,7 @@ const store = new Vuex.Store({
   modules: {},
   state: {
     menus: MENU,
-    isOpens: [],
+    isChildOpen: [],
     rules: {
       required: (value) => !!value || "Field is required",
       requiredObject: (value) => Boolean(Object.keys(value || {})[0]) || "Field is required",
@@ -28,24 +28,23 @@ const store = new Vuex.Store({
   mutations: {
     SET_IS_OPENS_BY_MENU(state, { menu, value }) {
       if (menu) {
-        state.isOpens[menu] = value;
+        state.isChildOpen[menu] = value;
       }
     },
-    SET_ALL_IS_OPENS(state) {
-      let isOpens = [];
+    CLOSE_ALL_CHILD(state) {
+      let temp = [];
       for (const menu in state.menus) {
-        isOpens[menu] = false;
+        temp[menu] = false;
       }
-      console.log("isOpens", isOpens);
-      // state.isOpens = isOpens;
+      state.isChildOpen = temp;
     },
   },
   actions: {
-    setIsOpensByMenu: ({ commit }, { menu, value }) => {
+    openChildMenu: ({ commit }, { menu, value }) => {
       commit("SET_IS_OPENS_BY_MENU", { menu, value });
     },
-    setAllIsOpens: ({ commit }) => {
-      commit("SET_ALL_IS_OPENS");
+    closeAllChildMenu: ({ commit }) => {
+      commit("CLOSE_ALL_CHILD");
     },
   },
   getters: {}
